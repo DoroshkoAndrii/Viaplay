@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TableHeaderView" customModule="Viaplay_iOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="529" height="270"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ber-2l-Uhj">
+                    <rect key="frame" x="25" y="69" width="479" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hVw-Kk-3QG">
+                    <rect key="frame" x="25" y="114.5" width="479" height="96.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Ber-2l-Uhj" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="25" id="3j4-qa-ac3"/>
+                <constraint firstItem="hVw-Kk-3QG" firstAttribute="trailing" secondItem="Ber-2l-Uhj" secondAttribute="trailing" id="7PO-bN-GPR"/>
+                <constraint firstItem="hVw-Kk-3QG" firstAttribute="leading" secondItem="Ber-2l-Uhj" secondAttribute="leading" id="HiW-a8-9kK"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Ber-2l-Uhj" secondAttribute="trailing" constant="25" id="XDq-YS-xGL"/>
+                <constraint firstItem="hVw-Kk-3QG" firstAttribute="top" secondItem="Ber-2l-Uhj" secondAttribute="bottom" constant="25" id="eAg-hV-tA8"/>
+                <constraint firstItem="Ber-2l-Uhj" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="25" id="lbA-dI-RW6"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="hVw-Kk-3QG" secondAttribute="bottom" constant="25" id="nRs-Zn-ghK"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="descriptionLabel" destination="hVw-Kk-3QG" id="TpV-KG-QXL"/>
+                <outlet property="titleLabel" destination="Ber-2l-Uhj" id="omX-95-npL"/>
+            </connections>
+            <point key="canvasLocation" x="94.927536231884062" y="28.794642857142854"/>
+        </view>
+    </objects>
+</document>
