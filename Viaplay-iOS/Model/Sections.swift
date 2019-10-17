@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct Sections {
+struct Section {
   let title: String
   let description: String
-  let sections: [Section]
+  let sections: [Link]
 }

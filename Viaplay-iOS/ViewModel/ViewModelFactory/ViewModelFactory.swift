@@ -1,14 +1,19 @@
 import Foundation
 
 protocol ViewModelFactoryProtocol {
-  func createSectionsViewModel() -> SectionsViewModelProtocol
+  func createSectionViewModel() -> SectionsViewModelProtocol
+  func createSectionViewModel(href: Link.Href) -> SectionsViewModelProtocol
 }
 
 class ViewModelFactory: ViewModelFactoryProtocol {
   
   static let shared = ViewModelFactory()
   
-  func createSectionsViewModel() -> SectionsViewModelProtocol {
+  func createSectionViewModel() -> SectionsViewModelProtocol {
     return SectionsViewModel()
+  }
+  
+  func createSectionViewModel(href: Link.Href) -> SectionsViewModelProtocol {
+    return SectionsViewModel(href: href)
   }
 }

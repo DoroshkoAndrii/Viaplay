@@ -1,14 +1,14 @@
 import Foundation
 
 protocol ScreenFactoryProtocol {
-  func createSectionsScreen() -> SectionsTableViewController
+  func createSectionScreen() -> SectionsTableViewController
 }
 
 class ScreenFactory: ScreenFactoryProtocol {
   
   static let shared = ScreenFactory()
   
-  func createSectionsScreen() -> SectionsTableViewController {
+  func createSectionScreen() -> SectionsTableViewController {
     return SectionsTableViewController()
   }
 }

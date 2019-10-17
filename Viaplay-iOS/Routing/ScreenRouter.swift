@@ -23,7 +23,7 @@ final class ScreenRouter {
     navigationController.navigationBar.prefersLargeTitles = true
     navigationController.navigationBar.setValue(true, forKey: "hidesShadow")
     
-    let controller = screenFactory.createSectionsScreen()
+    let controller = screenFactory.createSectionScreen()
     navigationController.setViewControllers([controller], animated: false)
     
     window?.makeKeyAndVisible()
@@ -32,12 +32,15 @@ final class ScreenRouter {
   func perform(route: RouteType) {
     switch route {
     case .sections:
-      let controller = screenFactory.createSectionsScreen()
-      let model = viewModelFactory.createSectionsViewModel()
+      let controller = screenFactory.createSectionScreen()
+      let model = viewModelFactory.createSectionViewModel()
       controller.connectViewModel(model)
       navigationController.setViewControllers([controller], animated: false)
-    case let .section(id):
-      print(id)
+    case let .section(href):
+      let controller = screenFactory.createSectionScreen()
+      let model = viewModelFactory.createSectionViewModel(href: href)
+      controller.connectViewModel(model)
+      navigationController.setViewControllers([controller], animated: false)
     }
   }
   

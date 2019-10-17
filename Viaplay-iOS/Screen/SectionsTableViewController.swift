@@ -22,8 +22,8 @@ class SectionsTableViewController: Screen {
   
   func reloadData() {
     title = "Viaplay - Streama"
-    tableHeader?.setTitle(viewModel?.sections.title ?? "")
-    tableHeader?.setDescription(viewModel?.sections.description ?? "")
+    tableHeader?.setTitle(viewModel?.dataSource.title ?? "")
+    tableHeader?.setDescription(viewModel?.dataSource.description ?? "")
 
     tableView.reloadData()
     tableView.layoutTableHeaderView()
@@ -34,7 +34,7 @@ class SectionsTableViewController: Screen {
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return viewModel?.sections.sections.count ?? 0
+    return viewModel?.dataSource.sections.count ?? 0
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -42,13 +42,17 @@ class SectionsTableViewController: Screen {
       = tableView.dequeueReusableCell(withIdentifier: "section")
         ?? UITableViewCell(style: .default, reuseIdentifier: "section")
     
-    cell.textLabel?.text = viewModel?.sections.sections[indexPath.item].title
+    cell.textLabel?.text = viewModel?.dataSource.sections[indexPath.item].title
     cell.accessoryType = .disclosureIndicator
     return cell
   }
+  
+//  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//    viewModel.select
+//  }
 }
 
-extension UITableView {
+private extension UITableView {
   func layoutTableHeaderView() {
     guard let headerView = self.tableHeaderView else { return }
     headerView.translatesAutoresizingMaskIntoConstraints = false

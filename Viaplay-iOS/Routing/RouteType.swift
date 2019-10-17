@@ -10,5 +10,5 @@ import Foundation
 
 enum RouteType {
   case sections
-  case section(Section.ID)
+  case section(Link.Href)
 }
