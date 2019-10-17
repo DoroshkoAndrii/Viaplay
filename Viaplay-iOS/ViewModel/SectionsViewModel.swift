@@ -5,6 +5,8 @@ protocol SectionsViewModelProtocol: BaseViewModelProtocol {
   var isLoading: Bool { get }
   func setReloadhandler(_ handler: @escaping (() -> Void))
   func selectSectionWith(href: Link.Href)
+  
+  func reload()
 }
 
 class SectionsViewModel: SectionsViewModelProtocol {
@@ -13,14 +15,16 @@ class SectionsViewModel: SectionsViewModelProtocol {
     didSet { self.reloadHandler() }
   }
   var isLoading: Bool = false
-  
   var reloadHandler: (() -> Void) = {}
+  
+  private var href: Link.Href?
   
   init() {
     synchronize()
   }
   
   init(href: Link.Href) {
+    self.href = href
     synchronize(href)
   }
   
@@ -62,5 +66,10 @@ class SectionsViewModel: SectionsViewModelProtocol {
   
   func selectSectionWith(href: Link.Href) {
     ScreenRouter.shared.perform(route: .section(href))
+  }
+  
+  func reload() {
+    guard let href = self.href else { return synchronize() }
+    synchronize(href)
   }
 }

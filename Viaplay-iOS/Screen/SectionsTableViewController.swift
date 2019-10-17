@@ -10,7 +10,7 @@ class SectionsTableViewController: Screen {
     return _viewModel
   }
   
-  lazy var tableHeader
+  private lazy var tableHeader
     = UINib.init(nibName: "TableHeaderView", bundle: Bundle.main)
       .instantiate(withOwner: self, options: nil).first as? TableHeaderView
   
@@ -18,15 +18,24 @@ class SectionsTableViewController: Screen {
     tableView = UITableView(frame: .zero, style: .grouped)
     tableView.tableHeaderView = tableHeader
     tableView.separatorStyle = .none
+    refreshControl = UIRefreshControl()
+    refreshControl?.addTarget(self,
+                              action: #selector(reload),
+                              for: .valueChanged)
   }
   
   func reloadData() {
     title = "Viaplay - Streama"
     tableHeader?.setTitle(viewModel?.dataSource.title ?? "")
     tableHeader?.setDescription(viewModel?.dataSource.description ?? "")
-
+    
     tableView.reloadData()
     tableView.layoutTableHeaderView()
+    refreshControl?.endRefreshing()
+  }
+  
+  @objc func reload(refreshControl: UIRefreshControl) {
+    viewModel?.reload()
   }
   
   override func numberOfSections(in tableView: UITableView) -> Int {
