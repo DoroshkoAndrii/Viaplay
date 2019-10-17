@@ -84,7 +84,8 @@ extension Link {
   static func fromDTO(_ dto: NetworkService.NetworkLink) -> Link {
     return Link(id: dto.id,
                 title: dto.title,
-                href: .init(string: dto.href))
+                href: .init(string: .init(dto.href.dropLast(6)))
+    )
   }
 }
 

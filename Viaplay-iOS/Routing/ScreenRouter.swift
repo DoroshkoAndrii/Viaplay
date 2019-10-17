@@ -11,21 +11,25 @@ import UIKit
 
 final class ScreenRouter {
   
+  static let shared = ScreenRouter()
+  
   private weak var window: UIWindow?
   private let screenFactory: ScreenFactoryProtocol = ScreenFactory.shared
   private let viewModelFactory: ViewModelFactoryProtocol = ViewModelFactory.shared
   
   private let navigationController = UINavigationController()
   
-  init(window: UIWindow?) {
-    self.window = window
-    window?.rootViewController = navigationController
+  init() {
     navigationController.navigationBar.prefersLargeTitles = true
     navigationController.navigationBar.setValue(true, forKey: "hidesShadow")
     
     let controller = screenFactory.createSectionScreen()
     navigationController.setViewControllers([controller], animated: false)
-    
+  }
+  
+  func setWindow(window: UIWindow?) {
+    self.window = window
+    window?.rootViewController = navigationController
     window?.makeKeyAndVisible()
   }
   

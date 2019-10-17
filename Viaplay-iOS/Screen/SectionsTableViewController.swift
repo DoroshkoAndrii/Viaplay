@@ -47,9 +47,10 @@ class SectionsTableViewController: Screen {
     return cell
   }
   
-//  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//    viewModel.select
-//  }
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    guard let href = viewModel?.dataSource.sections[indexPath.item].href else { return }
+    viewModel?.selectSectionWith(href: href)
+  }
 }
 
 private extension UITableView {

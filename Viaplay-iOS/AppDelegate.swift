@@ -12,12 +12,11 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
-  var screenRouter: ScreenRouter!
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     window = UIWindow()
-    screenRouter = ScreenRouter(window: window)
-    screenRouter.perform(route: .sections)
+    ScreenRouter.shared.setWindow(window: window)
+    ScreenRouter.shared.perform(route: .sections)
     return true
   }
 

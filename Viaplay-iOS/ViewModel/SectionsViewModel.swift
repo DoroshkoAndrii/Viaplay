@@ -4,6 +4,7 @@ protocol SectionsViewModelProtocol: BaseViewModelProtocol {
   var dataSource: Section { get }
   var isLoading: Bool { get }
   func setReloadhandler(_ handler: @escaping (() -> Void))
+  func selectSectionWith(href: Link.Href)
 }
 
 class SectionsViewModel: SectionsViewModelProtocol {
@@ -38,7 +39,9 @@ class SectionsViewModel: SectionsViewModelProtocol {
   
   func synchronize(_ href: Link.Href) {
     isLoading = true
-    NetworkService.shared.request(URL(string: href.string)) {[weak self] result in
+    NetworkService.shared.request(
+      URL(string: href.string)
+    ) {[weak self] result in
       self?.isLoading = false
       switch result {
       case let .failure(error):
@@ -55,5 +58,9 @@ class SectionsViewModel: SectionsViewModelProtocol {
   
   func setReloadhandler(_ handler: @escaping (() -> Void)) {
     self.reloadHandler = handler
+  }
+  
+  func selectSectionWith(href: Link.Href) {
+    ScreenRouter.shared.perform(route: .section(href))
   }
 }
