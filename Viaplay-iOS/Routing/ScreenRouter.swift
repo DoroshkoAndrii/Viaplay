@@ -22,9 +22,7 @@ final class ScreenRouter {
   init() {
     navigationController.navigationBar.prefersLargeTitles = true
     navigationController.navigationBar.setValue(true, forKey: "hidesShadow")
-    
-    let controller = screenFactory.createSectionScreen()
-    navigationController.setViewControllers([controller], animated: false)
+    navigationController.navigationBar.backItem?.title = "Viaplay"
   }
   
   func setWindow(window: UIWindow?) {
@@ -39,7 +37,23 @@ final class ScreenRouter {
       let controller = screenFactory.createSectionScreen()
       let model = viewModelFactory.createSectionViewModel(href: href)
       controller.connectViewModel(model)
-      navigationController.setViewControllers([controller], animated: false)
+      navigationController.pushViewController(controller, animated: true)
+    case let .alert(message, tryAgain):
+      let alertController = UIAlertController(title: "Sorry",
+                                              message: message,
+                                              preferredStyle: .alert)
+      
+      let tryAgain = UIAlertAction(title: "Try Again",
+                                   style: .default) { _ in tryAgain()}
+      
+      let cancel = UIAlertAction(title: "Cancel",
+                                 style: .cancel) { _ in alertController.dismiss(animated: true, completion: nil) }
+                                    
+      
+      alertController.addAction(tryAgain)
+      alertController.addAction(cancel)
+      navigationController.present(alertController, animated: true, completion: nil)
+
     }
   }
 }

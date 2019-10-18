@@ -51,6 +51,7 @@ class NetworkService {
   struct NetworkSection: Decodable {
     let title: String
     let description: String
+    let pageType: String
     let _links: Links; struct Links: Decodable {
       let links: [NetworkLink]
       private enum CodingKeys: String, CodingKey {
@@ -76,7 +77,8 @@ private extension Section {
   static func fromDTO(_ dto: NetworkService.NetworkSection) -> Section {
     return Section(title: dto.title,
                    description: dto.description,
-                   sections: dto._links.links.map(Link.fromDTO))
+                   sections: dto._links.links.map(Link.fromDTO),
+                   pageType: dto.pageType)
   }
 }
 

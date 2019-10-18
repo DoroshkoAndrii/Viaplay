@@ -10,4 +10,5 @@ import Foundation
 
 enum RouteType {
   case section(Link.Href)
+  case alert(String, () -> Void)
 }

@@ -24,8 +24,13 @@ class SectionsTableViewController: Screen {
                               for: .valueChanged)
   }
   
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    view.backgroundColor = .white
+  }
+  
   func reloadData() {
-    title = "Viaplay - Streama"
+    title = "Viaplay"
     tableHeader?.setTitle(viewModel?.dataSource.title ?? "")
     tableHeader?.setDescription(viewModel?.dataSource.description ?? "")
     

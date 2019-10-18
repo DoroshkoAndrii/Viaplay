@@ -6,6 +6,7 @@ class SectionRealmModel: Object {
   @objc dynamic var representation: String = ""
   var sections: List<LinkRealmModel> = List<LinkRealmModel>()
   @objc dynamic var href: String = ""
+  @objc dynamic var pageType: String = ""
   
   override static func primaryKey() -> String? {
     return "href"
