@@ -17,31 +17,24 @@ class SectionsViewModel: SectionsViewModelProtocol {
   var isLoading: Bool = false
   var reloadHandler: (() -> Void) = {}
   
-  private var href: Link.Href?
-  
-  init() {
-    synchronize()
-  }
+  private var href: Link.Href
   
   init(href: Link.Href) {
     self.href = href
-    synchronize(href)
+    synchronizeLocal(href)
+    synchronizeRemote(href)
   }
   
-  func synchronize() {
-    isLoading = true
-    NetworkService.shared.requestSections {[weak self] result in
-      self?.isLoading = false
-      switch result {
-      case let .failure(error):
-        self?.handleError(error)
-      case let .success(sections):
-        self?.dataSource = sections
-      }
+  func synchronizeLocal(_ href: Link.Href) {
+    DispatchQueue.main.async {
+      guard let section
+        = StorageService.shared.getSection(with: href)
+        else { return }
+      self.dataSource = section
     }
   }
   
-  func synchronize(_ href: Link.Href) {
+  func synchronizeRemote(_ href: Link.Href) {
     isLoading = true
     NetworkService.shared.request(
       URL(string: href.string)
@@ -50,9 +43,16 @@ class SectionsViewModel: SectionsViewModelProtocol {
       switch result {
       case let .failure(error):
         self?.handleError(error)
-      case let .success(sections):
-        self?.dataSource = sections
+      case let .success(section):
+        self?.dataSource = section
+        self?.saveLocal(section)
       }
+    }
+  }
+  
+  func saveLocal(_ section: Section) {
+    DispatchQueue.main.async {
+      try? StorageService.shared.saveSection(section, with: self.href)
     }
   }
   
@@ -69,7 +69,6 @@ class SectionsViewModel: SectionsViewModelProtocol {
   }
   
   func reload() {
-    guard let href = self.href else { return synchronize() }
-    synchronize(href)
+    synchronizeRemote(href)
   }
 }

@@ -35,11 +35,6 @@ final class ScreenRouter {
   
   func perform(route: RouteType) {
     switch route {
-    case .sections:
-      let controller = screenFactory.createSectionScreen()
-      let model = viewModelFactory.createSectionViewModel()
-      controller.connectViewModel(model)
-      navigationController.setViewControllers([controller], animated: false)
     case let .section(href):
       let controller = screenFactory.createSectionScreen()
       let model = viewModelFactory.createSectionViewModel(href: href)
@@ -47,5 +42,4 @@ final class ScreenRouter {
       navigationController.setViewControllers([controller], animated: false)
     }
   }
-  
 }

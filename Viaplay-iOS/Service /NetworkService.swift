@@ -72,7 +72,7 @@ class NetworkService {
   }
 }
 
-extension Section {
+private extension Section {
   static func fromDTO(_ dto: NetworkService.NetworkSection) -> Section {
     return Section(title: dto.title,
                    description: dto.description,
@@ -80,7 +80,7 @@ extension Section {
   }
 }
 
-extension Link {
+private extension Link {
   static func fromDTO(_ dto: NetworkService.NetworkLink) -> Link {
     return Link(id: dto.id,
                 title: dto.title,

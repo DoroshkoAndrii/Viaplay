@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,7 +19,7 @@
 		42DF6CC623588208007B5787 /* ViewModelFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DF6CC523588208007B5787 /* ViewModelFactory.swift */; };
 		42DF6CCE2358888E007B5787 /* SectionsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DF6CCD2358888E007B5787 /* SectionsViewModel.swift */; };
 		42DF6CD023588906007B5787 /* RouteType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DF6CCF23588906007B5787 /* RouteType.swift */; };
-		42DF6CD323588987007B5787 /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DF6CD223588987007B5787 /* Section.swift */; };
+		42DF6CD323588987007B5787 /* Link.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DF6CD223588987007B5787 /* Link.swift */; };
 		42DF6CD623588BE2007B5787 /* ScreenProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DF6CD523588BE2007B5787 /* ScreenProtocol.swift */; };
 		42DF6CD823588C51007B5787 /* BaseViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DF6CD723588C51007B5787 /* BaseViewModelProtocol.swift */; };
 		42DF6CDB23588D68007B5787 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DF6CDA23588D68007B5787 /* Screen.swift */; };
@@ -27,9 +27,13 @@
 		42DF6CE02358907D007B5787 /* Sections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DF6CDF2358907D007B5787 /* Sections.swift */; };
 		42DF6CE32358BBE7007B5787 /* TableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DF6CE22358BBE7007B5787 /* TableHeaderView.swift */; };
 		42DF6CE72358C3AC007B5787 /* TableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42DF6CE62358C3AC007B5787 /* TableHeaderView.xib */; };
+		42DF6CE923590D45007B5787 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DF6CE823590D45007B5787 /* StorageService.swift */; };
+		42DF6CEC23591804007B5787 /* SectionRealmModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DF6CEB23591804007B5787 /* SectionRealmModel.swift */; };
+		C8FAEF3A32FBFE158EF898B9 /* Pods_Viaplay_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91BFD223FEAAC943083E2726 /* Pods_Viaplay_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		23794734FE93D0B37254E65F /* Pods-Viaplay-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Viaplay-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Viaplay-iOS/Pods-Viaplay-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		42DF6CA823585894007B5787 /* Viaplay-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Viaplay-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42DF6CAB23585894007B5787 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42DF6CAD23585894007B5787 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -44,7 +48,7 @@
 		42DF6CC523588208007B5787 /* ViewModelFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelFactory.swift; sourceTree = "<group>"; };
 		42DF6CCD2358888E007B5787 /* SectionsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionsViewModel.swift; sourceTree = "<group>"; };
 		42DF6CCF23588906007B5787 /* RouteType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteType.swift; sourceTree = "<group>"; };
-		42DF6CD223588987007B5787 /* Section.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		42DF6CD223588987007B5787 /* Link.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Link.swift; sourceTree = "<group>"; };
 		42DF6CD523588BE2007B5787 /* ScreenProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenProtocol.swift; sourceTree = "<group>"; };
 		42DF6CD723588C51007B5787 /* BaseViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModelProtocol.swift; sourceTree = "<group>"; };
 		42DF6CDA23588D68007B5787 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
@@ -52,6 +56,10 @@
 		42DF6CDF2358907D007B5787 /* Sections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sections.swift; sourceTree = "<group>"; };
 		42DF6CE22358BBE7007B5787 /* TableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeaderView.swift; sourceTree = "<group>"; };
 		42DF6CE62358C3AC007B5787 /* TableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableHeaderView.xib; sourceTree = "<group>"; };
+		42DF6CE823590D45007B5787 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		42DF6CEB23591804007B5787 /* SectionRealmModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionRealmModel.swift; sourceTree = "<group>"; };
+		91BFD223FEAAC943083E2726 /* Pods_Viaplay_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Viaplay_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB6DB7B9952DAA9BD6626D2B /* Pods-Viaplay-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Viaplay-iOS.release.xcconfig"; path = "Target Support Files/Pods-Viaplay-iOS/Pods-Viaplay-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,17 +67,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8FAEF3A32FBFE158EF898B9 /* Pods_Viaplay_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		081B9B2DB7456B77F2A45D2C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				23794734FE93D0B37254E65F /* Pods-Viaplay-iOS.debug.xcconfig */,
+				AB6DB7B9952DAA9BD6626D2B /* Pods-Viaplay-iOS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		42DF6C9F23585894007B5787 = {
 			isa = PBXGroup;
 			children = (
 				42DF6CAA23585894007B5787 /* Viaplay-iOS */,
 				42DF6CA923585894007B5787 /* Products */,
+				081B9B2DB7456B77F2A45D2C /* Pods */,
+				537CBC37883A50EA396337E5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -149,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				42DF6CBD23585E12007B5787 /* NetworkService.swift */,
+				42DF6CE823590D45007B5787 /* StorageService.swift */,
 			);
 			path = "Service ";
 			sourceTree = "<group>";
@@ -156,7 +177,8 @@
 		42DF6CD123588945007B5787 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				42DF6CD223588987007B5787 /* Section.swift */,
+				42DF6CEA235917C7007B5787 /* RealmModel */,
+				42DF6CD223588987007B5787 /* Link.swift */,
 				42DF6CDF2358907D007B5787 /* Sections.swift */,
 			);
 			path = Model;
@@ -189,6 +211,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		42DF6CEA235917C7007B5787 /* RealmModel */ = {
+			isa = PBXGroup;
+			children = (
+				42DF6CEB23591804007B5787 /* SectionRealmModel.swift */,
+			);
+			path = RealmModel;
+			sourceTree = "<group>";
+		};
+		537CBC37883A50EA396337E5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				91BFD223FEAAC943083E2726 /* Pods_Viaplay_iOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -196,9 +234,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 42DF6CBA23585896007B5787 /* Build configuration list for PBXNativeTarget "Viaplay-iOS" */;
 			buildPhases = (
+				D8025D012A6FDCEB0CEB0453 /* [CP] Check Pods Manifest.lock */,
 				42DF6CA423585894007B5787 /* Sources */,
 				42DF6CA523585894007B5787 /* Frameworks */,
 				42DF6CA623585894007B5787 /* Resources */,
+				ED5A76D51883DEFD17EADFB0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -256,6 +296,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		D8025D012A6FDCEB0CEB0453 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Viaplay-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ED5A76D51883DEFD17EADFB0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Viaplay-iOS/Pods-Viaplay-iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Viaplay-iOS/Pods-Viaplay-iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Viaplay-iOS/Pods-Viaplay-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		42DF6CA423585894007B5787 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -264,15 +346,17 @@
 				42DF6CC22358801A007B5787 /* ScreenRouter.swift in Sources */,
 				42DF6CD023588906007B5787 /* RouteType.swift in Sources */,
 				42DF6CAE23585894007B5787 /* ViewController.swift in Sources */,
+				42DF6CEC23591804007B5787 /* SectionRealmModel.swift in Sources */,
 				42DF6CDE23588DB8007B5787 /* BaseViewModel.swift in Sources */,
 				42DF6CDB23588D68007B5787 /* Screen.swift in Sources */,
 				42DF6CD823588C51007B5787 /* BaseViewModelProtocol.swift in Sources */,
 				42DF6CC423588164007B5787 /* ScreenFactory.swift in Sources */,
 				42DF6CBE23585E12007B5787 /* NetworkService.swift in Sources */,
-				42DF6CD323588987007B5787 /* Section.swift in Sources */,
+				42DF6CD323588987007B5787 /* Link.swift in Sources */,
 				42DF6CC023587550007B5787 /* SectionsTableViewController.swift in Sources */,
 				42DF6CE02358907D007B5787 /* Sections.swift in Sources */,
 				42DF6CAC23585894007B5787 /* AppDelegate.swift in Sources */,
+				42DF6CE923590D45007B5787 /* StorageService.swift in Sources */,
 				42DF6CE32358BBE7007B5787 /* TableHeaderView.swift in Sources */,
 				42DF6CCE2358888E007B5787 /* SectionsViewModel.swift in Sources */,
 				42DF6CC623588208007B5787 /* ViewModelFactory.swift in Sources */,
@@ -420,6 +504,7 @@
 		};
 		42DF6CBB23585896007B5787 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 23794734FE93D0B37254E65F /* Pods-Viaplay-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -438,6 +523,7 @@
 		};
 		42DF6CBC23585896007B5787 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB6DB7B9952DAA9BD6626D2B /* Pods-Viaplay-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
