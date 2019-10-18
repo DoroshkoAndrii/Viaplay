@@ -11,7 +11,7 @@ protocol SectionsViewModelProtocol: BaseViewModelProtocol {
 
 class SectionsViewModel: SectionsViewModelProtocol {
   
-  var dataSource: Section = .init(title: "", description: "", sections: [], pageType: "") {
+  var dataSource: Section = .init(title: "", description: "", links: [], pageType: "") {
     didSet { self.reloadHandler() }
   }
   var isLoading: Bool = false
@@ -57,11 +57,20 @@ class SectionsViewModel: SectionsViewModelProtocol {
     }
   }
   
-  func handleError(_ error: Error?) {
+  func handleError(_ error: NetworkError) {
+    var message = "Something went wrong"
+    switch error {
+    case let .error(error):
+      message = error?.localizedDescription ?? "Something went wrong"
+    case .noURL:
+      message = "Remote URL broken"
+    case .parsingError:
+      message = "Parsing error"
+    }
     DispatchQueue.main.async { [weak self] in
       self?.reloadHandler()
       ScreenRouter.shared.perform(
-        route: .alert(error?.localizedDescription ?? "Something went wrong",
+        route: .alert(message,
                       { self?.reload() }))
     }
   }

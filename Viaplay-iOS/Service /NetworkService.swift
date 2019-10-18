@@ -54,7 +54,7 @@ private extension Section {
   static func fromDTO(_ dto: NetworkService.NetworkSection) -> Section {
     return Section(title: dto.title,
                    description: dto.description,
-                   sections: dto._links.links.map(Link.fromDTO),
+                   links: dto._links.links.map(Link.fromDTO),
                    pageType: dto.pageType)
   }
 }

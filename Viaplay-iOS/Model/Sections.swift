@@ -11,6 +11,6 @@ import Foundation
 struct Section {
   let title: String
   let description: String
-  let sections: [Link]
+  let links: [Link]
   let pageType: String
 }

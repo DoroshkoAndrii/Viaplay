@@ -30,7 +30,7 @@ extension SectionRealmModel {
     let model = SectionRealmModel()
     model.title = section.title
     model.representation = section.description
-    model.sections.append(objectsIn: section.sections.map(LinkRealmModel.fromDomain))
+    model.sections.append(objectsIn: section.links.map(LinkRealmModel.fromDomain))
     model.href = href.string
     model.pageType = section.pageType
     return model
@@ -51,7 +51,7 @@ private extension Section {
   static func fromLocal(model: SectionRealmModel) -> Section {
     return Section(title: model.title,
                    description: model.representation,
-                   sections: model.sections.map(Link.fromLocal),
+                   links: model.sections.map(Link.fromLocal),
                    pageType: model.pageType)
   }
 }

@@ -58,7 +58,7 @@ class SectionsTableViewController: Screen {
   }
   
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return viewModel?.dataSource.sections.count ?? 0
+    return viewModel?.dataSource.links.count ?? 0
   }
   
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -66,17 +66,18 @@ class SectionsTableViewController: Screen {
       = tableView.dequeueReusableCell(withIdentifier: "section")
         ?? UITableViewCell(style: .default, reuseIdentifier: "section")
     
-    cell.textLabel?.text = viewModel?.dataSource.sections[indexPath.item].title
+    cell.textLabel?.text = viewModel?.dataSource.links[indexPath.item].title
     cell.accessoryType = .disclosureIndicator
     return cell
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    guard let href = viewModel?.dataSource.sections[indexPath.item].href else { return }
+    guard let href = viewModel?.dataSource.links[indexPath.item].href else { return }
     viewModel?.selectSectionWith(href: href)
   }
 }
 
+// fixes iOS 11 table view's header wrong frame
 private extension UITableView {
   func layoutTableHeaderView() {
     guard let headerView = self.tableHeaderView else { return }
