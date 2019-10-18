@@ -2,8 +2,8 @@
 Work Sample - Navigating Viaplay's API
 
 ## Requirements
-- iOS 8.0+
-- Xcode 7.3
+- iOS 12.0+
+- Xcode 10.2
 
 ## Installation
 
