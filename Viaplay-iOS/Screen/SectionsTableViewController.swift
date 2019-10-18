@@ -43,6 +43,7 @@ class SectionsTableViewController: Screen {
 
     tableView.reloadData()
     tableView.layoutTableHeaderView()
+    tableView.backgroundView?.isHidden = !(tableView.tableHeaderView?.isHidden ?? false)
     (viewModel?.isLoading ?? true)
       ? refreshControl?.beginRefreshing()
       : refreshControl?.endRefreshing()
