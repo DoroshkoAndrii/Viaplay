@@ -43,17 +43,19 @@ final class ScreenRouter {
                                               message: message,
                                               preferredStyle: .alert)
       
-      let tryAgain = UIAlertAction(title: "Try Again",
-                                   style: .default) { _ in tryAgain()}
+      let tryAgain = UIAlertAction(
+        title: "Try Again",
+        style: .default) { _ in tryAgain()}
       
-      let cancel = UIAlertAction(title: "Cancel",
-                                 style: .cancel) { _ in alertController.dismiss(animated: true, completion: nil) }
-                                    
+      let cancel = UIAlertAction(
+        title: "Cancel",
+        style: .cancel) { [weak self] _ in
+          self?.navigationController.dismiss(animated: true, completion: nil)
+      }
       
       alertController.addAction(tryAgain)
       alertController.addAction(cancel)
       navigationController.present(alertController, animated: true, completion: nil)
-
     }
   }
 }

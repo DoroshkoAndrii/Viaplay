@@ -18,25 +18,34 @@ class SectionsTableViewController: Screen {
     tableView = UITableView(frame: .zero, style: .grouped)
     tableView.tableHeaderView = tableHeader
     tableView.separatorStyle = .none
+    let label = UILabel()
+    label.numberOfLines = 0
+    label.text = "No data available \n Pull to refresh ⤓"
+    label.sizeToFit()
+    label.textAlignment = .center
+    tableView.backgroundView = label
+    label.frame = tableView.frame
     refreshControl = UIRefreshControl()
     refreshControl?.addTarget(self,
                               action: #selector(reload),
                               for: .valueChanged)
-  }
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
     view.backgroundColor = .white
   }
   
   func reloadData() {
     title = "Viaplay"
+  
     tableHeader?.setTitle(viewModel?.dataSource.title ?? "")
     tableHeader?.setDescription(viewModel?.dataSource.description ?? "")
-    
+    tableView.tableHeaderView?.isHidden
+      = (viewModel?.dataSource.title.isEmpty ?? true
+        && viewModel?.dataSource.description.isEmpty ?? true)
+
     tableView.reloadData()
     tableView.layoutTableHeaderView()
-    refreshControl?.endRefreshing()
+    (viewModel?.isLoading ?? true)
+      ? refreshControl?.beginRefreshing()
+      : refreshControl?.endRefreshing()
   }
   
   @objc func reload(refreshControl: UIRefreshControl) {

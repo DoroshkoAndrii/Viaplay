@@ -36,6 +36,7 @@ class SectionsViewModel: SectionsViewModelProtocol {
   
   func synchronizeRemote(_ href: Link.Href) {
     isLoading = true
+    reloadHandler()
     NetworkService.shared.request(
       URL(string: href.string)
     ) {[weak self] result in
@@ -57,9 +58,12 @@ class SectionsViewModel: SectionsViewModelProtocol {
   }
   
   func handleError(_ error: Error?) {
-    ScreenRouter.shared.perform(
-      route: .alert(error?.localizedDescription ?? "Something went wrong",
-                    { [weak self] in self?.reload() }))
+    DispatchQueue.main.async { [weak self] in
+      self?.reloadHandler()
+      ScreenRouter.shared.perform(
+        route: .alert(error?.localizedDescription ?? "Something went wrong",
+                      { self?.reload() }))
+    }
   }
   
   func setReloadhandler(_ handler: @escaping (() -> Void)) {

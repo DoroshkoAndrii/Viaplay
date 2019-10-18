@@ -1,11 +1,4 @@
-//
-//  NetworkService.swift
-//  Viaplay-iOS
-//
-//  Created by Andrey Doroshko on 10/17/19.
 //  Copyright © 2019 Andrey Doroshko. All rights reserved.
-//
-
 import Foundation
 
 enum NetworkError: Error {
@@ -15,26 +8,10 @@ enum NetworkError: Error {
 }
 
 class NetworkService {
-  let baseURL = URL(string: "https://content.viaplay.se/ios-se")
   static var shared = NetworkService()
   
   func request(_ url: URL?, completion: @escaping (Result<Section, NetworkError>) -> Void) {
     guard let url = url
-      else { completion(.failure(.noURL("URL not found"))); return }
-    var request = URLRequest(url: url)
-    request.httpMethod = "GET"
-    
-    URLSession.shared.dataTask(with: request) { (data, response, error) in
-      guard error == nil else { completion(.failure(.error(error))); return }
-      if let data = data {
-        guard let sections = try? JSONDecoder().decode(NetworkSection.self, from: data)
-          else { completion(.failure(.parsingError)); return }
-        completion(.success(Section.fromDTO(sections)))
-      }}.resume()
-  }
-  
-  func requestSections(completion: @escaping (Result<Section, NetworkError>) -> Void) {
-    guard let url = baseURL
       else { completion(.failure(.noURL("URL not found"))); return }
     var request = URLRequest(url: url)
     request.httpMethod = "GET"

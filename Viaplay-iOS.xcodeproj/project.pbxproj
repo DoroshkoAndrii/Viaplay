@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		42DF6CAC23585894007B5787 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DF6CAB23585894007B5787 /* AppDelegate.swift */; };
-		42DF6CAE23585894007B5787 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DF6CAD23585894007B5787 /* ViewController.swift */; };
-		42DF6CB123585894007B5787 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42DF6CAF23585894007B5787 /* Main.storyboard */; };
 		42DF6CB323585896007B5787 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42DF6CB223585896007B5787 /* Assets.xcassets */; };
 		42DF6CB623585896007B5787 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42DF6CB423585896007B5787 /* LaunchScreen.storyboard */; };
 		42DF6CBE23585E12007B5787 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42DF6CBD23585E12007B5787 /* NetworkService.swift */; };
@@ -36,8 +34,6 @@
 		23794734FE93D0B37254E65F /* Pods-Viaplay-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Viaplay-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Viaplay-iOS/Pods-Viaplay-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		42DF6CA823585894007B5787 /* Viaplay-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Viaplay-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42DF6CAB23585894007B5787 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		42DF6CAD23585894007B5787 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		42DF6CB023585894007B5787 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		42DF6CB223585896007B5787 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42DF6CB523585896007B5787 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		42DF6CB723585896007B5787 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -111,8 +107,6 @@
 				42DF6CCC23588852007B5787 /* Service  */,
 				42DF6CD123588945007B5787 /* Model */,
 				42DF6CAB23585894007B5787 /* AppDelegate.swift */,
-				42DF6CAD23585894007B5787 /* ViewController.swift */,
-				42DF6CAF23585894007B5787 /* Main.storyboard */,
 				42DF6CB223585896007B5787 /* Assets.xcassets */,
 				42DF6CB423585896007B5787 /* LaunchScreen.storyboard */,
 				42DF6CB723585896007B5787 /* Info.plist */,
@@ -290,7 +284,6 @@
 				42DF6CE72358C3AC007B5787 /* TableHeaderView.xib in Resources */,
 				42DF6CB623585896007B5787 /* LaunchScreen.storyboard in Resources */,
 				42DF6CB323585896007B5787 /* Assets.xcassets in Resources */,
-				42DF6CB123585894007B5787 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,7 +338,6 @@
 			files = (
 				42DF6CC22358801A007B5787 /* ScreenRouter.swift in Sources */,
 				42DF6CD023588906007B5787 /* RouteType.swift in Sources */,
-				42DF6CAE23585894007B5787 /* ViewController.swift in Sources */,
 				42DF6CEC23591804007B5787 /* SectionRealmModel.swift in Sources */,
 				42DF6CDE23588DB8007B5787 /* BaseViewModel.swift in Sources */,
 				42DF6CDB23588D68007B5787 /* Screen.swift in Sources */,
@@ -367,14 +359,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		42DF6CAF23585894007B5787 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				42DF6CB023585894007B5787 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		42DF6CB423585896007B5787 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
